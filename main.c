@@ -7,16 +7,14 @@ typedef unsigned char u_char;
 
 int main(int argc, char *argv[])
 {
-    // Check for required arguments
-    if (argc < 3) // Expecting at least 2 arguments: DMARC record and domain
+    char dmarc_record[1024];
+    if (fgets(dmarc_record, sizeof(dmarc_record), stdin) == NULL)
     {
-        fprintf(stderr, "Usage: %s <DMARC record> <domain> [organizational domain]\n", argv[0]);
+        fprintf(stderr, "Error reading input.\n");
         return 1;
     }
 
-    // Extract arguments from command line
-    const char *dmarc_record = argv[1];
-    const char *domain = argv[2];
+    const char *domain = "example.com";
     const char *organizational_domain = (argc >= 4) ? argv[3] : NULL;
 
     // Initialize a DMARC policy context
