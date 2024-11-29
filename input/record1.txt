@@ -1,0 +1,1 @@
+v=DMARC1; p=quarantine; sp=reject; aspf=r; adkim=s; fo=0:1:s; pct=10; rua=mailto:d@rua.agari.com; ruf=mailto:d@ruf.agari.com;
